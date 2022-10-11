@@ -1,21 +1,22 @@
 #include "sort.h"
+
 /**
  * bubble_sort - sorts an array of integers with Bubble Sort
  * @array: param
  * @size: param
+ *
  * Return: void
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, n;
+	size_t i, n, n1;
 	int swap;
-	int n1;
 
 	if (array == NULL || size < 2)
-        return;
+		return;
 
 	n = size;
-	do
+	while (n > 0)
 	{
 		n1 = 0;
 		for (i = 0; i < n - 1; i++)
@@ -25,9 +26,10 @@ void bubble_sort(int *array, size_t size)
 				swap = array[i];
 				array[i] = array[i + 1];
 				array[i + 1] = swap;
-				n1 = 1;
+				n1 = i + 1;
 				print_array(array, size);
 			}
 		}
-	} while (n1 > 0)
+		n = n1;
+	}
 }
